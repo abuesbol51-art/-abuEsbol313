@@ -20,3 +20,51 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+import colorama
+from colorama import Fore, Style
+import os
+
+colorama.init()
+
+logo = f"""
+{Fore.CYAN}====================================
+       TOOL ESBOL VERSION 1.0
+===================================={Style.RESET_ALL}
+"""
+
+menu = f"""
+{Fore.GREEN}[1]{Style.RESET_ALL} Info Sistem
+{Fore.GREEN}[2]{Style.RESET_ALL} Ping
+{Fore.GREEN}[3]{Style.RESET_ALL} Clear Layar
+{Fore.GREEN}[0]{Style.RESET_ALL} Keluar
+"""
+
+def info_sistem():
+    os.system("uname -a")
+
+def ping_google():
+    os.system("ping -c 4 google.com")
+
+def clear():
+    os.system("clear")
+
+while True:
+    clear()
+    print(logo)
+    print(menu)
+    pilih = input(Fore.YELLOW + "Pilih menu: " + Style.RESET_ALL)
+
+    if pilih == "1":
+        info_sistem()
+        input("\nENTER untuk kembali...")
+    elif pilih == "2":
+        ping_google()
+        input("\nENTER untuk kembali...")
+    elif pilih == "3":
+        clear()
+    elif pilih == "0":
+        print("Keluar...")
+        break
+    else:
+        input("Pilihan tidak ada! ENTER...")
